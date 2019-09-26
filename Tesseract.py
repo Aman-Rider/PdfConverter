@@ -40,11 +40,10 @@ def save():
             
 def OCR():
     path = 'test\\'
-    text =''
     files = os.listdir(path)
     for file in files:
         print(file)
-        text += pytesseract.image_to_string(Image.open(os.path.join(path,file)))
+        text = pytesseract.image_to_string(Image.open(os.path.join(path,file)))
         os.remove(os.path.join(path,file))
         with open("out.txt",'a') as f:
             f.write(text)
